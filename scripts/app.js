@@ -8,7 +8,7 @@ app.controller('GameController', function(){
   this.showBacklog = false;
   this.lines = ["I hear Jerusalem bells a-ringing", "Roman calvary choirs are singing", "Be my mirror, my sword and shield", "My missionaries in a foreign field", "For some reason I can't explain", "I know St. Peter won't call my name"];
   this.imageChanges = [1,2,4];
-  this.images = ['res/images/pic1.jpg','res/images/pic2.jpg', 'res/images/pic3.jpg'];
+  this.images = ['res/images/pic1.jpg','res/images/pic2.jpg', 'res/images/pic3.jpg', 'res/images/pic1.jpg'];
   this.currentLine = 0;
   this.currentImage = 0;
 

@@ -1,28 +1,15 @@
 body{
 }
 
-.backgroundimg {
-
-  display:block;
-  width: 60%;
-  margin:auto;
-}
-
-.uiscreen{
-
-  height: 60%;
-  background-size: 60%;
-  margin-left: auto;
-  margin-right: auto;
-}
 
 .textbox{
-  position:absolute;
-  top:10px;
   width: 100%;
-  height: 80%;
-  background-color: #999999;
-  margin-top:20px;
+  height: 85%;
+  position:absolute;
+  bottom:0px;
+  margin:auto;
+  background-color: #555555;
+  opacity: 0.8;
 }
 
 .backlog{
@@ -31,18 +18,21 @@ body{
   height:100%;
   width:60%;
   background-color: #222222;
+
 }
 
 .storytext{
   font-size: 20px;
+  color: white;
 }
 
 .textgroup{
-  position: relative;
-  display:block;
-  margin:auto;
-  width:60%;
-  height:60%;
+  position: absolute;
+  bottom:0px;
+  left: 15%;
+  right: 15%;
+  width:70%;
+  height:30%;
 }
 
 
@@ -53,6 +43,8 @@ body{
 }
 
 #textboxbtns{
+  position:absolute;
   float: right;
-  display:inline-block;
+  top:0px;
+  right:0px;
 }
