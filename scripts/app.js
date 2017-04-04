@@ -7,8 +7,10 @@ app.controller('GameController', function(){
   this.currentTab = 'game';
 
   this.backlogQueue = [];
-
   this.showBacklog = false;
+
+  this.showTextBox = true;
+
   this.lines = ["I hear Jerusalem bells a-ringing", "Roman calvary choirs are singing", "Be my mirror, my sword and shield", "My missionaries in a foreign field", "For some reason I can't explain", "I know St. Peter won't call my name"];
   this.imageChanges = [1,2,4];
   this.images = ["res/images/pic1.jpg", "res/images/pic2.jpg", "res/images/pic3.jpg", "res/images/pic1.jpg"];
@@ -19,8 +21,8 @@ app.controller('GameController', function(){
 
   this.forward = function(){
     if(this.currentTab === 'game'){
-      if(this.textboxHidden){
-        this.textboxHidden = false;
+      if(!this.showTextBox){
+        this.showTextBox = true;
       } else {
         if(this.currentLine === this.imageChanges[this.currentImage]){
           this.currentImage++;
@@ -45,6 +47,7 @@ app.controller('GameController', function(){
 
   this.setBacklog = function(backBool){
     this.showBacklog = backBool;
+    this.showTextBox = !backBool;
   };
 
   this.setTab = function(tab){
@@ -54,6 +57,10 @@ app.controller('GameController', function(){
     } else {
       this.backgroundImage = 'res/images/gallerybg.png'; //change to jpg later lmao
     }
+  };
+
+  this.hideTextBox = function(){
+    this.showTextBox = false;
   };
 
 });
