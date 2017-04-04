@@ -1,4 +1,14 @@
-body{
+body {
+  background-image: url("res/images/gallerybg.png");
+
+}
+
+nav{
+
+  position:fixed;
+  top:0px;
+  z-index:1;
+
 }
 
 .textbox{
@@ -10,6 +20,14 @@ body{
   background-color: #555555;
   padding: 10;
   opacity: 0.8;
+}
+
+.cgimage{
+  z-index:0;
+  position:fixed;
+  bottom:0px;
+  width:100%;
+  height:100%;
 }
 
 .backlog{
@@ -26,6 +44,16 @@ body{
 .storytext{
   font-size: 20px;
   color: white;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.storytext:hover{
+  cursor: default;
 }
 
 .textgroup{
@@ -38,14 +66,32 @@ body{
 }
 
 .thumbnails{
-  width:10%;
+  display: inline-block;
+  align-self: center;
+  width: 32%;
   margin:10px;
+  opacity: 0.8;
+  transition: opacity .25s ease-in-out;
+  -moz-transition: opacity .25s ease-in-out;
+  -webkit-transition: opacity .25s ease-in-out;
+}
+
+.thumbnails:hover{
+  opacity: 1;
 }
 
 .gallery{
-  display:block;
+
+  display:flex;
+  flex-wrap:wrap;
   margin:auto;
-  width:70%;
+  width:80%;
+}
+
+#nextpage{
+  color: white;
+  float: right;
+  bottom: 0px;
 }
 
 #backlogbtns{

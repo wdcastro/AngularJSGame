@@ -18,18 +18,25 @@ app.controller('GameController', function(){
   this.backgroundImage = this.images[this.currentImage];
 
   this.forward = function(){
-    if(this.currentLine === this.imageChanges[this.currentImage]){
-      this.currentImage++;
-      this.backgroundImage = this.images[this.currentImage];
+    if(this.currentTab === 'game'){
+      if(this.textboxHidden){
+        this.textboxHidden = false;
+      } else {
+        if(this.currentLine === this.imageChanges[this.currentImage]){
+          this.currentImage++;
+          this.backgroundImage = this.images[this.currentImage];
+        }
+        if(this.currentLine < this.lines.length -1){
+          this.backlogQueue.push(this.lines[this.currentLine]);
+          if(this.backlogQueue.length > 10){
+            this.backlogQueue.splice(0,1);
+          }
+          this.currentLine++;
+        }
+      }
+
     }
 
-    if(this.currentLine < this.lines.length -1){
-      this.backlogQueue.push(this.lines[this.currentLine]);
-      if(this.backlogQueue.length > 10){
-        this.backlogQueue.splice(0,1);
-      }
-      this.currentLine++;
-    }
   };
 
   this.toggleBacklog = function(){
@@ -42,11 +49,10 @@ app.controller('GameController', function(){
 
   this.setTab = function(tab){
     this.currentTab = tab;
-    if(tab === 'gallery'){
-      this.backgroundImage = 'res/images/gallerybg.png'; //change to jpg later lmao
-    }
     if(tab === 'game'){
       this.backgroundImage = this.images[this.currentImage];
+    } else {
+      this.backgroundImage = 'res/images/gallerybg.png'; //change to jpg later lmao
     }
   };
 
@@ -54,10 +60,15 @@ app.controller('GameController', function(){
 
 
 app.controller('GalleryController', function(){
-  this.size = '10%';
   this.expand = function(){
 
   };
+
+});
+
+app.controller('SettingsController', function(){
+  this.size = '10%';
+  this.name = "Hello";
 
 });
 
