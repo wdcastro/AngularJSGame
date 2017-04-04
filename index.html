@@ -1,10 +1,7 @@
 <html ng-app='game'>
 <head>
 
-  <script
-    src="https://code.jquery.com/jquery-3.2.1.min.js"
-    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -22,7 +19,7 @@
     My Angular JS Game
   </title>
 </head>
-<body ng-controller="GameController as gc" ng-style="{'background':'transparent url(' + gc.images[gc.currentImage] + ')', 'background-repeat': 'no-repeat', 'background-size' : '100%'}">
+<body ng-controller="GameController as gc" ng-style="{'background':'transparent url(' + gc.backgroundImage + ')', 'background-repeat': 'no-repeat', 'background-size' : '100%'}">
 
     <!-- Navigation bar code here -->
 
@@ -42,8 +39,9 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-          <li><a href="#">Link</a></li>
+          <li ng-class="{'active': gc.currentTab === 'game'}"><a href="#" ng-click="gc.setTab('game')">Game</a></li>
+
+            <li ng-class="{'active': gc.currentTab === 'gallery'}"><a href="#" ng-click="gc.setTab('gallery')" >Gallery <span class="sr-only">(current)</span></a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
             <ul class="dropdown-menu">
@@ -64,7 +62,7 @@
           <button type="submit" class="btn btn-default">Submit</button>
         </form>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Link</a></li>
+          <li><a href="#">Settings</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
             <ul class="dropdown-menu">
@@ -79,10 +77,9 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
-
   <!-- Visual novel UI screen -->
-
-    <div class ='backlog' ng-show=  "gc.showBacklog">
+  <div class="game" ng-show= "gc.currentTab === 'game'">
+    <div class ='backlog' ng-show= "gc.showBacklog">
 
     <button ng-click="gc.toggleBacklog()" class="btn btn-default" id="backlogbtns">Backlog</button>
 
@@ -99,7 +96,7 @@
       </p>
     </div>
 
-
+</div>
     </div>
 
 </body>

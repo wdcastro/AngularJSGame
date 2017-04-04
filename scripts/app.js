@@ -4,6 +4,7 @@ var app = angular.module('game', []);
 
 app.controller('GameController', function(){
   this.name = 'Hello';
+  this.currentTab = 'game';
 
   this.showBacklog = false;
   this.lines = ["I hear Jerusalem bells a-ringing", "Roman calvary choirs are singing", "Be my mirror, my sword and shield", "My missionaries in a foreign field", "For some reason I can't explain", "I know St. Peter won't call my name"];
@@ -12,9 +13,12 @@ app.controller('GameController', function(){
   this.currentLine = 0;
   this.currentImage = 0;
 
+  this.backgroundImage = this.images[this.currentImage];
+
   this.forward = function(){
     if(this.currentLine === this.imageChanges[this.currentImage]){
       this.currentImage++;
+      this.backgroundImage = this.images[this.currentImage];
     }
     if(this.currentLine < this.lines.length -1){
       this.currentLine++;
@@ -23,6 +27,20 @@ app.controller('GameController', function(){
 
   this.toggleBacklog = function(){
     this.showBacklog = !this.showBacklog;
+  };
+
+  this.setBacklog = function(backBool){
+    this.showBacklog = backBool;
+  };
+
+  this.setTab = function(tab){
+    this.currentTab = tab;
+    if(tab === 'gallery'){
+      this.backgroundImage = 'res/images/gallerybg.png'; //change to jpg later lmao
+    }
+    if(tab === 'game'){
+      this.backgroundImage = this.images[this.currentImage];
+    }
   };
 
 });
