@@ -41,7 +41,7 @@
         <ul class="nav navbar-nav">
           <li ng-class="{'active': gc.currentTab === 'game'}"><a href="#" ng-click="gc.setTab('game')">Game</a></li>
 
-            <li ng-class="{'active': gc.currentTab === 'gallery'}"><a href="#" ng-click="gc.setTab('gallery')" >Gallery <span class="sr-only">(current)</span></a></li>
+            <li ng-class="{'active': gc.currentTab === 'gallery'}"><a href="#" ng-click="gc.setTab('gallery')">Gallery</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
             <ul class="dropdown-menu">
@@ -77,11 +77,18 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
+
+
   <!-- Visual novel UI screen -->
   <div class="game" ng-show= "gc.currentTab === 'game'">
     <div class ='backlog' ng-show= "gc.showBacklog">
 
-    <button ng-click="gc.toggleBacklog()" class="btn btn-default" id="backlogbtns">Backlog</button>
+    <button ng-click="gc.toggleBacklog()" class="btn btn-default" id="backlogbtns"><span class="glyphicon glyphicon-remove" aria-hidden="true"></button>
+      <div class="backlogtextbox">
+      <p ng-repeat="line in gc.lines track by $index" class="storytext">
+        {{line}}
+      </p>
+    </div>
 
     </div>
     <br>
@@ -97,6 +104,12 @@
     </div>
 
 </div>
+    </div>
+
+    <!-- Gallery code -->
+
+    <div class='gallery' ng-show="gc.currentTab === 'gallery'" ng-controller="GalleryController as glc">
+      <img ng-repeat="i in gc.images track by $index" ng-src="{{i}}" class="thumbnails">
     </div>
 
 </body>

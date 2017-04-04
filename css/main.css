@@ -13,10 +13,20 @@ body{
 }
 
 .backlog{
+  /*position: absolute;
+  bottom: 0px;
+  left: 15%;
+  right: 15%;
+  width: 70%;
+  height: 30%;*/
   display: block;
   margin: auto;
-  height:100%;
-  width:60%;
+  position:absolute;
+  bottom: 10px;
+  height: 90%;
+  left: 15%;
+  right: 15%;
+  width: 70%;
   background-color: #222222;
 
 }
@@ -35,6 +45,10 @@ body{
   height:30%;
 }
 
+.thumbnails{
+  width:10%;
+  margin:10px;
+}
 
 #backlogbtns{
   float: right;
@@ -47,4 +61,12 @@ body{
   float: right;
   top:0px;
   right:0px;
+}
+
+.backlogtextbox{
+  position:absolute;
+  bottom: 0px;
+  left:0px;
+  right:0px;
+  height: 95%;
 }
