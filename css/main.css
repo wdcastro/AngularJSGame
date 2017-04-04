@@ -1,7 +1,6 @@
 body{
 }
 
-
 .textbox{
   width: 100%;
   height: 85%;
@@ -9,16 +8,11 @@ body{
   bottom:0px;
   margin:auto;
   background-color: #555555;
+  padding: 10;
   opacity: 0.8;
 }
 
 .backlog{
-  /*position: absolute;
-  bottom: 0px;
-  left: 15%;
-  right: 15%;
-  width: 70%;
-  height: 30%;*/
   display: block;
   margin: auto;
   position:absolute;
@@ -27,8 +21,6 @@ body{
   left: 15%;
   right: 15%;
   width: 70%;
-  background-color: #222222;
-
 }
 
 .storytext{
@@ -38,11 +30,11 @@ body{
 
 .textgroup{
   position: absolute;
-  bottom:0px;
+  bottom: 0px;
   left: 15%;
   right: 15%;
-  width:70%;
-  height:30%;
+  width: 70%;
+  height: 30%;
 }
 
 .thumbnails{
@@ -50,10 +42,15 @@ body{
   margin:10px;
 }
 
+.gallery{
+  display:block;
+  margin:auto;
+  width:70%;
+}
+
 #backlogbtns{
   float: right;
   display:inline-block;
-
 }
 
 #textboxbtns{
@@ -64,6 +61,9 @@ body{
 }
 
 .backlogtextbox{
+  opacity: 0.8;
+  padding:10;
+  background-color: #555555;
   position:absolute;
   bottom: 0px;
   left:0px;

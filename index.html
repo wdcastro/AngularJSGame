@@ -85,8 +85,11 @@
 
     <button ng-click="gc.toggleBacklog()" class="btn btn-default" id="backlogbtns"><span class="glyphicon glyphicon-remove" aria-hidden="true"></button>
       <div class="backlogtextbox">
-      <p ng-repeat="line in gc.lines track by $index" class="storytext">
-        {{line}}
+      <p ng-repeat="line in gc.backlogQueue track by $index" class="storytext">
+        > {{line}}
+      </p>
+      <p ng-show="gc.backlogQueue.length === 0" class="storytext">
+        No backlog to display
       </p>
     </div>
 
@@ -110,6 +113,7 @@
 
     <div class='gallery' ng-show="gc.currentTab === 'gallery'" ng-controller="GalleryController as glc">
       <img ng-repeat="i in gc.images track by $index" ng-src="{{i}}" class="thumbnails">
+
     </div>
 
 </body>

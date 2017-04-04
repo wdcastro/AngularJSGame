@@ -6,6 +6,8 @@ app.controller('GameController', function(){
   this.name = 'Hello';
   this.currentTab = 'game';
 
+  this.backlogQueue = [];
+
   this.showBacklog = false;
   this.lines = ["I hear Jerusalem bells a-ringing", "Roman calvary choirs are singing", "Be my mirror, my sword and shield", "My missionaries in a foreign field", "For some reason I can't explain", "I know St. Peter won't call my name"];
   this.imageChanges = [1,2,4];
@@ -20,7 +22,12 @@ app.controller('GameController', function(){
       this.currentImage++;
       this.backgroundImage = this.images[this.currentImage];
     }
+
     if(this.currentLine < this.lines.length -1){
+      this.backlogQueue.push(this.lines[this.currentLine]);
+      if(this.backlogQueue.length > 10){
+        this.backlogQueue.splice(0,1);
+      }
       this.currentLine++;
     }
   };
@@ -45,11 +52,12 @@ app.controller('GameController', function(){
 
 });
 
+
 app.controller('GalleryController', function(){
   this.size = '10%';
   this.expand = function(){
-  };
 
+  };
 
 });
 
