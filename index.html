@@ -1,0 +1,56 @@
+<html ng-app='game'>
+<head>
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="css/main.css">
+<script type="text/javascript" src="scripts/angular.min.js"></script>
+<script type="text/javascript" src="scripts/app.js"></script>
+  <title>
+    My Angular JS Game
+  </title>
+</head>
+<body ng-controller="GameController as gc">
+  <nav class="navbar navbar-default">
+    <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+  </nav>
+{{gc.images[0]}}
+  <div class="uiscreen">
+    <img ng-src='{{gc.images[gc.currentImage]}}' ng-click="gc.forward()" class="backgroundimg" ng-hide="gc.showBacklog">
+    <div class ='backlog' ng-show="gc.showBacklog">
+
+    <button ng-click="gc.toggleBacklog()" class="btn btn-default" id="backlogbtns">Backlog</button>
+
+    </div>
+    <br>
+    <div class="textgroup"  ng-hide="gc.showBacklog">
+      <div class='btn-group' id="textboxbtns">
+         <button ng-click="gc.toggleBacklog()" class="btn btn-default">Backlog</button>
+        <button ng-click="gc.forward()" class="btn btn-default">Next</button>
+      </div>
+    <div class="textbox" ng-click="gc.forward()">
+      <p class="storytext" ng-click="gc.forward()">
+        {{gc.lines[gc.currentLine]}}
+      </p>
+    </div>
+
+
+    </div>
+  </div>
+
+</body>
+</html>
